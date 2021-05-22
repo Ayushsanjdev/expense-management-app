@@ -45,29 +45,19 @@ button:hover {
 	transform: translate(0);
 }
 
-section {
-	color: lightslategrey;
-	font-size: small;
-	width: 500px;
-	height: 500px;
-	border: 1px solid black;
-	margin: 2rem auto;
-}
-
 li {
-	width: 450px;
-	height: 40px;
-	border: 1px groove grey;
 	list-style-type: none;
 	margin: 10px auto;
 }
 
-.list-grid span {
-	background-color: #333;
+.first-span, .second-span {
+	padding: 0 5%;
+	background-color: lightblue;
 }
 
-.list-component {
-	background-color: #333;
+p {
+	color: grey;
+	font-size: 1.2rem;
 }
 
 @media only screen and (max-width: 404px) {
