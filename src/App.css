@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.app {
+	font-family: Roboto, sans-serif;
+	text-align: center;
+	margin-top: 5rem;
+}
+
+
+input {
+	width: 150px;
+	height: 30px;
+	font-size: 13px;
+	font-family: serif;
+	text-align: center;
+	margin-right: 10px;
+	padding: 0.5rem;
+}
+
+span {
+	font-weight: bolder;
+	font-size: 1.2rem;
+	color: red;
+
+}
+
+h1 {
+	color: springgreen;
+	font-weight: bolder;
+}
+
+button {
+	background-color: #333;
+	cursor: pointer;
+	font-weight: bolder;
+	padding: 0.6rem;
+	color: lightgreen;
+}
+
+button:hover {
+	background-color: #f64c72;
+}
+
+.hideBalance {
+	transform: translate(0);
+}
+
+@media only screen and (max-width: 404px) {
+	input {
+		display: block;
+		margin: 10px auto;
+		padding: 0.5rem;
+	}
+}
