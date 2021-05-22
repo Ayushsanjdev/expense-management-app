@@ -1,19 +1,15 @@
-import React from 'react';
-import '../App.js';
-import '../App.css';
+// import React from 'react';
+// import '../App.js';
+// import '../App.css';
 
-function ListComponent() {
+// function ListComponent() {
 
 
-	return(
-		<>
-			<div className="list-grid">
-				{/* <span>{item}</span>
-				<span>{createdAt}</span>
-				<span>{amount}</span> */}
-			</div>
-		</>
-	)
-}
+// 	return(
+// 		<>
 
-export default ListComponent;
+// 		</>
+// 	)
+// }
+
+// export default ListComponent;

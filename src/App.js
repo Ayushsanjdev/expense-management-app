@@ -19,7 +19,9 @@ function App() {
   const [item, setItem] = useState("");
   const spanEl = useRef();
 
-  //firestore config
+  // useEffect(() => {
+  //   getDocs();
+  // }, [])
 
   const getDocs = () => {
     db.collection("expenseUser")
@@ -35,64 +37,79 @@ function App() {
             docId: doc.id,
           });
         }
-        console.log(documents);
         renderList(documents);
+        // console.log(documents);
       })
     });
   }
 
-  const deleteDocs = (docId, totalexpense) => {
-    db.collection("expenseUser")
-    .doc(docId)
-    .delete()
-    .then(() => {
-      console.log("document deleted!");
-    })
-    .catch((error) => {
-      console.error("found error in: ", error);
-    });
-    db.collection("expenseUser")
-    .doc("total")
-    .update({
-      total: firebase.firestore.FieldValue.increment(-totalexpense),
-    });
+  const renderList = (arrOfList) => {
+    spanEl.current.textContent = arrOfList.map((amount) => createListItem(amount))
+    .join("");
   }
 
-
-  const addDocs = (textDesc, amount) => {
-    db.collection("expenseUser")
-    .add({
-      desc: textDesc,
-      amount: amount,
-      createdAt: firebase.firestore.FieldValue.serverTimestamp()
-    })
-    .then((docRef) => {
-      console.log("doc id: ", docRef.id);
-    })
-    .catch((error) => {
-      console.error("error adding document: ", error);
-    });
-    db.collection("expenseUser")
-    .doc("total")
-    .update({
-      total: firebase.firestore.FieldValue.increment(amount)
-    });
+  const createListItem = ({desc, amount, createdAt, docId}) => {
+    return (
+      <ul>
+        `<li>${desc, amount, createdAt, docId}</li>`
+      </ul>
+    )
   }
+  
+
+
+  // const deleteDocs = (docId, totalexpense) => {
+  //   db.collection("expenseUser")
+  //   .doc(docId)
+  //   .delete()
+  //   .then(() => {
+  //     console.log("document deleted!");
+  //   })
+  //   .catch((error) => {
+  //     console.error("found error in: ", error);
+  //   });
+  //   db.collection("expenseUser")
+  //   .doc("total")
+  //   .update({
+  //     total: firebase.firestore.FieldValue.increment(-totalexpense),
+  //   });
+  // }
+
+
+  // const addDocs = (textDesc, amount) => {
+  //   db.collection("expenseUser")
+  //   .add({
+  //     desc: textDesc,
+  //     amount: amount,
+  //     createdAt: firebase.firestore.FieldValue.serverTimestamp()
+  //   })
+  //   .then((docRef) => {
+  //     console.log("doc id: ", docRef.id);
+  //   })
+  //   .catch((error) => {
+  //     console.error("error adding document: ", error);
+  //   });
+  //   db.collection("expenseUser")
+  //   .doc("total")
+  //   .update({
+  //     total: firebase.firestore.FieldValue.increment(amount)
+  //   });
+  // }
 
 
   const setExpense = () => {
     setTotalExpense(
       (prevExpense) => parseInt(amount, 10) + prevExpense);
-      
+    getDocs();
   }
 
-  const renderList = (arr) => {
-    arr.map((amount) => createListItem(amount));
-  }
+  // const renderList = (arr) => {
+  //   arr.map((amount) => createListItem(amount));
+  // }
 
-  const createListItem = () => {
-    //need to do
-  }
+  // const createListItem = () => {
+  //   //need to do
+  // }
 
   const handleChange = (e) => {
     setAmount(e.target.value);
@@ -110,7 +127,7 @@ function App() {
         </h1>
         <h3>
           Total Spent: 
-          <span ref={spanEl}> {totalExpense} </span> <br />
+          <span ref={spanEl}>{totalExpense}</span> <br />
           Item Name:  
           <span> {item}</span>
         </h3>
@@ -128,7 +145,7 @@ function App() {
         />
       <button onClick={setExpense}>Add</button>
       <section>
-        Click on add to show ur expenses here...
+          <li ref={spanEl}>{}</li>
       </section>
     </div>
   );
