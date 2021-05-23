@@ -30,7 +30,7 @@ function App() {
       });
   }, []);
 
-  // const deleteDocs = (docId, totalexpense) => {
+  // const deleteDocs = (textDesc, amount) => {
   //   db.collection("expenseUser")
   //   .doc(docId)
   //   .delete()
@@ -72,14 +72,6 @@ function App() {
     addDocs(item, amount);
   };
 
-  // const renderList = (arr) => {
-  //   arr.map((amount) => createListItem(amount));
-  // }
-
-  // const createListItem = () => {
-  //   //need to do
-  // }
-
   const handleChange = (e) => {
     setAmount(e.target.value);
   };
@@ -109,7 +101,7 @@ function App() {
         placeholder="Item Name..."
         onChange={itemHandleChange}
       />
-      <button onClick={setExpense}>++</button>
+      <button onClick={setExpense}>Add</button>
       <p>Your expense history: </p>
       <ul>
         {allExpenses &&
@@ -119,6 +111,8 @@ function App() {
                 <span className="first-span">{expense.amount}</span>
                 {"  "}
                 <span className="second-span">{expense.desc}</span>
+                {" "}
+                {/* <span className="span">{}</span> */}
               </li>
             );
           })}
