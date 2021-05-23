@@ -4,6 +4,8 @@
 	font-family: Roboto, sans-serif;
 	text-align: center;
 	margin-top: 5rem;
+	max-width: 1440px;
+
 }
 
 
@@ -17,11 +19,13 @@ input {
 	padding: 0.5rem;
 }
 
-span {
-	font-weight: bolder;
-	font-size: 1.2rem;
+.first-span {
 	color: red;
+}
 
+.totalExpense {
+	color: orangered;
+	font-size: larger;
 }
 
 h1 {
@@ -41,18 +45,15 @@ button:hover {
 	background-color: #f64c72;
 }
 
-.hideBalance {
-	transform: translate(0);
-}
-
 li {
 	list-style-type: none;
 	margin: 10px auto;
-}
+	background-color: rgb(230, 226, 222);
+	max-width: 200px;
+	padding: 0.5rem;
+	display: flex;
+	justify-content: space-around;
 
-.first-span, .second-span {
-	padding: 0 5%;
-	background-color: lightblue;
 }
 
 p {

@@ -94,7 +94,7 @@ function App() {
         <h1>Expense Management App</h1>
         <h3>
           Total Spent:
-          <span>{totalExpense}</span> <br />
+          <span className="totalExpense">{totalExpense}</span> <br />
         </h3>
       </header>
       <input
